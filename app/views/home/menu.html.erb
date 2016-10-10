@@ -1,3 +1,5 @@
-<% ['Breakfast', 'Lunch', 'Dinner', 'Drinks'].each do |section| %>
-    <h1> <%= link_to section, menu_path %><h1>
+<% Section.all.each do |section| %>
+    <h1> <%= link_to section.name, menu_path(section: section.name) %><h1>
 <%end%>
+
+<% debug @section.food_items %>

@@ -4,7 +4,7 @@
 
 Submitted by: **Truong Tuan Manh**
 
-Time spent: **0** hours spent in total and counting
+Time spent: **2** hours spent in total and counting
 
 URL: **heroku-app-url**
 
