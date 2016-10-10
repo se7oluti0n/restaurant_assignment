@@ -1,6 +1,13 @@
 <% Section.all.each do |section| %>
     <h1> <%= link_to section.name, menu_path(section: section.name) %><h1>
 <%end%>
+
+
 <% if @section %>
-    <%= debug @section.food_items %>
+    <h2> <%= link_to "Sort alphabet", menu_path(section: @section.name, order: 'alphabet') %><h2>
+    <h2> <%= link_to "Sort low to high", menu_path(section: @section.name, order: 'lowtohigh') %><h2>
+    <h2> <%= link_to "Sort high to low", menu_path(section: @section.name, order: 'hightolow') %><h2>
+	<% @food_item.each do |food| %>
+		<%= link_to food.name, food_items_path+"/#{food.id}" %>
+	<%end%>
 <%end%>
