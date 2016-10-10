@@ -1,4 +1,9 @@
 class HomeController < ApplicationController
+	def index
+		if params[:search]
+			@search_result = FoodItem.where(['lower(name) like ?', "%#{params[:search].downcase}%"])
+		end	
+	end
     def menu
         if params[:section]
             @section = Section.where(name: params[:section]).first
