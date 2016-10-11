@@ -1,0 +1,4 @@
+
+<a><%= link_to food_item.name, food_items_path+"/#{food_item.id}" %></a>
+<%= link_to "Order this", new_order_path(food_id: food_item) %>
+<br>
