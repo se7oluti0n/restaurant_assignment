@@ -21,9 +21,19 @@
 </p>
 
 <p>
+  <strong>Views:</strong>
+  <%= @food_item.views %>
+</p>
+<p>
   <strong>Image url:</strong>
   <%= @food_item.image_url %>
 </p>
 
+<p>
+  <strong>Average:</strong>
+  <%= @average_star %>
+</p>
+<%= render partial: 'reviews/form', locals: {review: @review}%>
+<%= render @reviews %>
 <%= link_to 'Edit', edit_food_item_path(@food_item) %> |
 <%= link_to 'Back', food_items_path %>

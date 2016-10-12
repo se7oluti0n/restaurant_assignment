@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011102610) do
+ActiveRecord::Schema.define(version: 20161012180919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20161011102610) do
     t.decimal  "price"
     t.integer  "section_id"
     t.string   "image_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "views",       default: 0
     t.index ["section_id"], name: "index_food_items_on_section_id", using: :btree
   end
 
@@ -36,6 +37,16 @@ ActiveRecord::Schema.define(version: 20161011102610) do
     t.index ["food_item_id"], name: "index_orders_on_food_item_id", using: :btree
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "user"
+    t.integer  "star"
+    t.text     "comment"
+    t.integer  "food_item_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["food_item_id"], name: "index_reviews_on_food_item_id", using: :btree
+  end
+
   create_table "sections", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,4 +55,5 @@ ActiveRecord::Schema.define(version: 20161011102610) do
 
   add_foreign_key "food_items", "sections"
   add_foreign_key "orders", "food_items"
+  add_foreign_key "reviews", "food_items"
 end

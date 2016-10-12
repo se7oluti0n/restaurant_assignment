@@ -10,6 +10,24 @@ class FoodItemsController < ApplicationController
   # GET /food_items/1
   # GET /food_items/1.json
   def show
+    @food_item = FoodItem.find(params[:id])
+    @food_item.views += 1
+    @food_item.save
+  
+     
+    @reviews = Review.where(food_item_id: params[:id])
+    
+    @average_star = 0.0
+    item = 0
+    @reviews.each do |review| 
+      @average_star += review.star
+      item += 1
+    end
+
+    @average_star = @average_star / item
+
+    @review = Review.new
+    @review.food_item_id = params[:id]
   end
 
   # GET /food_items/new

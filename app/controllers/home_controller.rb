@@ -12,6 +12,8 @@ class HomeController < ApplicationController
                                             case params[:order]
                             when 'alphabet'
                                     FoodItem.where(section: @section).order('name ASC')
+                            when 'mostview'
+                                    FoodItem.where(section: @section).order('views DESC')
                             when 'lowtohigh'
                                     FoodItem.where(section: @section).order('price ASC')
                             when 'hightolow'
