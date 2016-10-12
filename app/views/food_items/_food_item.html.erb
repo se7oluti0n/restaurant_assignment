@@ -1,4 +1,10 @@
+<div class="card">
+    <div class="card-block">
+      <h4 class="card-title"><%= link_to food_item.name, food_items_path+"/#{food_item.id}" %></h4>
+    </div>
+      <img class="card-img-top" src=<%= food_item.image_url %> alt="Card image cap">
+    <div class="card-block">
+      
+    </div>
+</div>
 
-<a><%= link_to food_item.name, food_items_path+"/#{food_item.id}" %></a>
-<%= link_to "Order this", new_order_path(food_id: food_item) %>
-<br>

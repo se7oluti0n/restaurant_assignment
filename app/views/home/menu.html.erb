@@ -1,6 +1,8 @@
-<% Section.all.each do |section| %>
-    <h1> <%= link_to section.name, menu_path(section: section.name) %><h1>
-<%end%>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <% Section.all.each do |section| %>
+      <%= link_to section.name, menu_path(section: section.name), class: "btn btn-secondary" %>
+  <%end%>
+</div>
 
 
 <% if @section %>
@@ -8,5 +10,5 @@
     <h2> <%= link_to "Sort most views", menu_path(section: @section.name, order: 'mostview') %><h2>
     <h2> <%= link_to "Sort low to high", menu_path(section: @section.name, order: 'lowtohigh') %><h2>
     <h2> <%= link_to "Sort high to low", menu_path(section: @section.name, order: 'hightolow') %><h2>
-	<%= render @food_items%>
+    <%= render @food_items%>
 <%end%>

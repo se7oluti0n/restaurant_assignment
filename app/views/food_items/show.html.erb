@@ -1,3 +1,12 @@
+<div class="row">
+
+<div class="col-md-6">
+  
+      <img class="card-img-top" src=<%= @food_item.image_url %> alt="Card image cap">
+</div>
+
+<div class="col-md-6">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -17,16 +26,12 @@
 
 <p>
   <strong>Section:</strong>
-  <%= @food_item.section %>
+  <%= @food_item.section.name %>
 </p>
 
 <p>
   <strong>Views:</strong>
   <%= @food_item.views %>
-</p>
-<p>
-  <strong>Image url:</strong>
-  <%= @food_item.image_url %>
 </p>
 
 <p>
@@ -37,3 +42,6 @@
 <%= render @reviews %>
 <%= link_to 'Edit', edit_food_item_path(@food_item) %> |
 <%= link_to 'Back', food_items_path %>
+</div>
+
+</div>

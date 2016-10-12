@@ -18,13 +18,11 @@ class FoodItemsController < ApplicationController
     @reviews = Review.where(food_item_id: params[:id])
     
     @average_star = 0.0
-    item = 0
     @reviews.each do |review| 
       @average_star += review.star
-      item += 1
     end
 
-    @average_star = @average_star / item
+    @average_star = @average_star / @reviews.size
 
     @review = Review.new
     @review.food_item_id = params[:id]
