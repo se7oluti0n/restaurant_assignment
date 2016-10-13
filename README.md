@@ -4,9 +4,9 @@
 
 Submitted by: **Truong Tuan Manh**
 
-Time spent: **5** hours spent in total and counting
+Time spent: **20** hours spent in total and counting
 
-URL: **heroku-app-url**
+URL: **https://blue-restaurant.herokuapp.coml**
 
 ## User Stories
 
@@ -81,4 +81,3 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-* [ ] User should be able to get for a menu item and see results.

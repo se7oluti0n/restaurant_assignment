@@ -18,11 +18,9 @@ class FoodItemsController < ApplicationController
     @reviews = Review.where(food_item_id: params[:id])
     
     @average_star = 0.0
-    @reviews.each do |review| 
-      @average_star += review.star
+    if @reviews.count > 0
+      @average_star = @reviews.collect(&:star).sum.to_f / @reviews.count
     end
-
-    @average_star = @average_star / @reviews.size
 
     @review = Review.new
     @review.food_item_id = params[:id]
