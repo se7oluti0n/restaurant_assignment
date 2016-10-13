@@ -5,3 +5,30 @@
 */
 @import "bootstrap";
 @import "font-awesome";
+
+/*!
+ * Start Bootstrap - The Big Picture (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+	background: none;
+}
+
+.full {
+  background: url(https://wallpaperscraft.com/image/bread_vegetables_meat_food_70203_1920x1080.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
