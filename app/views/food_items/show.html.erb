@@ -1,47 +1,47 @@
 <div class="row">
 
-<div class="col-md-6">
-  
-      <img class="card-img-top" src=<%= @food_item.image_url %> alt="Card image cap">
+    <div class="col-md-6">
+      
+          <img class="card-img-top" src=<%= @food_item.image_url %> alt="Card image cap">
+    </div>
+
+    <div class="col-md-6">
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @food_item.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @food_item.description %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @food_item.price %>
+    </p>
+
+    <p>
+      <strong>Section:</strong>
+      <%= @food_item.section.name %>
+    </p>
+
+    <p>
+      <%= fa_stacked_icon "eye", class: "fa-2x", text: @food_item.views %>
+      <%= fa_stacked_icon "heart-o", class: "fa-2x", text: @average_star %>
+      <%= fa_stacked_icon "comments-o", class: "fa-2x", text: @reviews.size %>
+    </p>
+    
+    <%= link_to 'Order', new_order_path(food_id: @food_item), class: "btn btn-danger red" %> 
+    <%= link_to 'Back', menu_path(section: @food_item.section.name), class: "btn btn-outline-primary" %>
+    </div>
+
 </div>
+<div class=row>
 
-<div class="col-md-6">
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @food_item.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @food_item.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @food_item.price %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @food_item.section.name %>
-</p>
-
-<p>
-  <strong>Views:</strong>
-  <%= @food_item.views %>
-</p>
-
-<p>
-  <strong>Average:</strong>
-  <%= @average_star %>
-</p>
 <%= render partial: 'reviews/form', locals: {review: @review}%>
 <%= render @reviews %>
-<%= link_to 'Edit', edit_food_item_path(@food_item) %> |
-<%= link_to 'Back', food_items_path %>
-</div>
-
 </div>

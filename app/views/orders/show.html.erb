@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success" role="alert">
+<% if notice %>
+  <strong>Thank you!</strong> <%= notice %>
+  <% end  %>
+</div>
 
 <p>
   <strong>User name:</strong>
@@ -20,5 +24,15 @@
   <%= @order.food_item.name %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Total cost:</strong>
+  <%= fa_stacked_icon "dollar inverse", base: "circle", class: "fa-5x", text: @order.food_item.price + 20 %>
+( Including 20$ shipping fee)
+</p>
+
+<p>
+  <strong>Time of order:</strong>
+  <%= @order.created_at %> 
+</p>
+
+<%= link_to 'Back', menu_path(section: @order.food_item.section.name), class: "btn btn-outline-primary" %>

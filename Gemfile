@@ -51,3 +51,4 @@ source 'https://rails-assets.org' do
 end
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'faker', '~> 1.6', '>= 1.6.3'
+gem "font-awesome-rails"

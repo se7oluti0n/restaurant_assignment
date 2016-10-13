@@ -1,5 +1,35 @@
 <h1>New Order</h1>
 
-<%= render 'form', order: @order %>
+<div class="row">
+	<%if @food_item %>
+	    <div class="col-md-6">
+	      
+	          <img class="card-img-top" src=<%= @food_item.image_url %> alt="Card image cap">
+	    </div>
 
-<%= link_to 'Back', orders_path %>
+	    <div class="col-md-6">
+
+		    <p id="notice"><%= notice %></p>
+
+		    <p>
+		      <strong>Name:</strong>
+		      <%= @food_item.name %>
+		    </p>
+
+		    <p>
+		      <strong>Price:</strong>
+		      <%= @food_item.price %>$
+		    </p>
+
+		    <p>
+		      <strong>Shipping:</strong>
+		      <%= fa_stacked_icon "truck", class: "fa-1x", text: "20$" %>
+		    </p>
+	    </div>
+	<% end %>
+</div>
+<div class=row>
+	<%= render 'form', order: @order %>
+	<%= link_to 'Back', food_items_path+"/#{@food_item.id}", class: "btn btn-outline-primary" %>
+</div>
+

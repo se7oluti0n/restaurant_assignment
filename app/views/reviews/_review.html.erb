@@ -1,6 +1,9 @@
-<p>
-  
-  <%= review.user %> 
-  <%= review.star %> 
-  <%= review.comment %>
-</p>
+  <div class="panel panel-default">
+	<div class="panel-heading">
+		<strong> <%= review.user %> </strong> <%= fa_stacked_icon "heart-o", class: "fa-1x", text: review.star %>
+	</div>
+	<div class="panel-body">
+	<%= review.comment %>
+	</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
+

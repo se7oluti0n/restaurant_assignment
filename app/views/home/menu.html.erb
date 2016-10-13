@@ -1,14 +1,36 @@
-<div class="btn-group" role="group" aria-label="Basic example">
-  <% Section.all.each do |section| %>
-      <%= link_to section.name, menu_path(section: section.name), class: "btn btn-secondary" %>
-  <%end%>
+<div class="row">
+	<br>
 </div>
+<div class="row">
 
+	<div class="btn-group col-md-6 offset-md-3" role="group" aria-label="Button group with nested dropdown">
 
-<% if @section %>
-    <h2> <%= link_to "Sort alphabet", menu_path(section: @section.name, order: 'alphabet') %><h2>
-    <h2> <%= link_to "Sort most views", menu_path(section: @section.name, order: 'mostview') %><h2>
-    <h2> <%= link_to "Sort low to high", menu_path(section: @section.name, order: 'lowtohigh') %><h2>
-    <h2> <%= link_to "Sort high to low", menu_path(section: @section.name, order: 'hightolow') %><h2>
-    <%= render @food_items%>
-<%end%>
+	  	<% Section.all.each do |section| %>
+
+				 <%= link_to section.name, menu_path(section: section.name), class: "btn btn-secondary #{'active' if params[:section] == section.name }" %>
+  
+	  	<%end%>
+
+	  <div class="btn-group" role="group">
+	    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	      Sort by
+	    </button>
+	    <% if @section %>
+		    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'alphabet') %>>Alphabet</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'mostview') %>>Most views</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'lowtohigh') %>>Low price</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'hightolow') %>>High price</a>
+		    </div>
+	    <%end%>
+	  </div>
+	</div>
+</div>
+<div class="row">
+	<br>
+</div>
+<div class="row">
+	<% if @section %>
+	    	<%= render @food_items%>
+	<%end%>
+</div>
