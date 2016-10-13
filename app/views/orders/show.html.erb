@@ -25,9 +25,23 @@
 </p>
 
 <p>
+  <strong>Price:</strong>
+  <%= @order.food_item.price %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @order.discount * 100 %>%
+</p>
+
+<p>
+  <strong>Shipping:</strong> 20$
+</p>
+
+
+<p>
   <strong>Total cost:</strong>
-  <%= fa_stacked_icon "dollar inverse", base: "circle", class: "fa-5x", text: @order.food_item.price + 20 %>
-( Including 20$ shipping fee)
+  <%= fa_stacked_icon "dollar inverse", base: "circle", class: "fa-5x", text: @order.food_item.price * (1 - @order.discount) + 20 %>
 </p>
 
 <p>

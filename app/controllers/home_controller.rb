@@ -8,22 +8,29 @@ class HomeController < ApplicationController
     def menu
         if params[:section]
             @section = Section.where(name: params[:section]).first
+        end
+
+        if @section 
+            @food_items = @section.food_items
+        else
+            @food_items = FoodItem.all
+        end
+
+        if @food_items and params[:order]
             @food_items = if params[:order]
                             case params[:order]
                                 when 'alphabet'
-                                        FoodItem.where(section: @section).order('name ASC')
+                                        @food_items.order('name ASC')
                                 when 'mostview'
-                                        FoodItem.where(section: @section).order('views DESC')
+                                        @food_items.order('views DESC')
                                 when 'lowtohigh'
-                                        FoodItem.where(section: @section).order('price ASC')
+                                        @food_items.order('price ASC')
                                 when 'hightolow'
-                                        FoodItem.where(section: @section).order('price DESC')
+                                        @food_items.order('price DESC')
                                 else
-                                        nil
+                                        @food_items
                             end
-                    else
-                            @section.food_items
-                    end
+                        end
         end
 
     end

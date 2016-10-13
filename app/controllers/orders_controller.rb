@@ -30,6 +30,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    if params["order"]["coupon"] == "CODERSCHOOL"
+      @order.discount = 0.5
+    end
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Your order was successfully created.' }

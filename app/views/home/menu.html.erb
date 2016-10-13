@@ -15,12 +15,12 @@
 	    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	      Sort by
 	    </button>
-	    <% if @section %>
+	    <% if @food_items %>
 		    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'alphabet') %>>Alphabet</a>
-		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'mostview') %>>Most views</a>
-		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'lowtohigh') %>>Low price</a>
-		      <a class="dropdown-item" href=<%= menu_path(section: @section.name, order: 'hightolow') %>>High price</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: "#{@section.name if @section}", order: 'alphabet') %>>Alphabet</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: "#{@section.name if @section}", order: 'mostview') %>>Most views</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: "#{@section.name if @section}", order: 'lowtohigh') %>>Low price</a>
+		      <a class="dropdown-item" href=<%= menu_path(section: "#{@section.name if @section}", order: 'hightolow') %>>High price</a>
 		    </div>
 	    <%end%>
 	  </div>
@@ -30,7 +30,7 @@
 	<br>
 </div>
 <div class="row">
-	<% if @section %>
+	<% if @food_items %>
 	    	<%= render @food_items%>
 	<%end%>
 </div>
